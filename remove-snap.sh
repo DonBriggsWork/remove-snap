@@ -1,9 +1,18 @@
 #!/bin/bash
 
-echo "Removing snap..."
+# remove-snap             | By Don! Briggs <DonBriggsWork@gmail.com>
+#
+# Completely remove SNAP from Ubuntu. This includes files, Linux services,
+# configuration files, filesystem mounts, etc.
+#
 
-# Stop the daemon
+printf "\n"
+printf "                  Completely removing SNAP Support\n"
+printf "======================================================================\n"
+
+printf "  - Stopping snapd service\n"
 sudo systemctl disable --now snapd
+sudo systemctl stop --now snapd
 
 # Uninstall
 sudo apt purge -y snapd
